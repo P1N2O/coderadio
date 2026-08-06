@@ -1,0 +1,19 @@
+# Publishes each new GitHub release to the Windows Package Manager (winget)
+name: Publish to Winget
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: vedantmgoyal9/winget-releaser@main
+        with:
+          identifier: P1N2O.CodeRadio
+          installers-regex: 'coderadio-windows-(x86_64|arm64)\.exe$'
+          token: ${{ secrets.WINGET_TOKEN }}

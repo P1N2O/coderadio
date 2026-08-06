@@ -76,8 +76,8 @@ jobs:
           name: ${{ matrix.artifact }}
           path: ${{ matrix.artifact }}
 
-  # macOS binaries built natively with the Xcode SDK that a macOS runner
-  # provides. Ships both per-arch binaries AND a universal (lipo) one.
+  # macOS binaries built natively with the Xcode SDK on macOS runner.
+  # Ships both per-arch binaries and a universal (lipo) one.
   build-macos:
     name: macOS (arm64, x86_64, universal)
     runs-on: macos-latest
